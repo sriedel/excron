@@ -2,52 +2,56 @@ Grammar of Crontabs
 
 Symbolic names are always case insensitive
 
-<crontab>  ::= [<hostgroupdefs>]
-               <ruledefs>
+<crontab>       ::= [<hostgroupdefs>]
+                    [<mailsenderdef>]
+                    <ruledefs>
                
 <hostgroupdefs> ::= <hostgroupdef>
                     [<hostgroupdefs>]
-<hostgroupdef> ::= Hostgroup <hostgroupname>: <hostnames>
+<hostgroupdef>  ::= Hostgroup <hostgroupname>: <hostnames>
 <hostgroupname> ::= \w+
-<hostnames> ::= <hostname>[,<hostnames>]
-<hostname> ::= <name returned by "hostname -f">
+<hostnames>     ::= <hostname>[,<hostnames>]
+<hostname>      ::= <name returned by "hostname -f">
 
+<mailsenderdef> ::= [<hostname>|<IPv4Address>][:<Port>]
+<IPv4Address>   ::= (1-255).(0-255).(0-255).(0-255)
+<Port>          ::= 0-65535
 
-<ruledefs>    ::= <ruledef>
-                  [<ruledefs>]
-<ruledef>     ::= <timespec> <hostspec> <userspec> <optionspec> <command>
+<ruledefs>      ::= <ruledef>
+                    [<ruledefs>]
+<ruledef>       ::= <timespec> <hostspec> <userspec> <optionspec> <command>
 
-<timespec> ::= <secondspec> <minutespec> <hourspec> <dayspec> <monthspec> <yearspec>
-<secondspec>   ::= <secondvalues>|(*[/<mod>[+<div>]])
-<secondvalues> ::= <secondvalue>[,<secondvalues>]
-<secondvalue>  ::= 0-59
-<minutespec>   ::= <minutevalues>|(*[/<mod>[+<div>]])
-<minutevalues> ::= <minutevalue>[,<minutevalues>]
-<minutevalue>  ::= 0-59
-<hourspec>   ::= <hourvalues>|(*[/<mod>[+<div>]])
-<hourvalues> ::= <hourvalue>[,<hourvalues>]
-<hourvalue>  ::= 0-23
-<dayspec>   ::= <dayvalues>|(*[/<mod>[+<div>]])
-<dayvalues> ::= <dayvalue>[,<dayvalues>]
-<dayvalue>  ::= 1-31|last                      # in accordance with existing days in the indicated month
-<monthspec>   ::= <monthvalues>|(*[/<mod>[+<div>]])
-<monthvalues> ::= <monthvalue>[,<monthvalues>]
-<monthvalue>  ::= 1-12|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec
-<yearspec> ::= <yearvalues>|(*[/<mod>[+<div>]])
-<yearvalues> ::= <yearvalue>[,<yearvalues>]
-<yearvalue> ::= <absolute year within the Common Era>
-<mod> ::= <positive integer>
-<div> ::= <positive integer less than corresponding <mod>>
+<timespec>      ::= <secondspec> <minutespec> <hourspec> <dayspec> <monthspec> <yearspec>
+<secondspec>    ::= <secondvalues>|(*[/<mod>[+<div>]])
+<secondvalues>  ::= <secondvalue>[,<secondvalues>]
+<secondvalue>   ::= 0-59
+<minutespec>    ::= <minutevalues>|(*[/<mod>[+<div>]])
+<minutevalues>  ::= <minutevalue>[,<minutevalues>]
+<minutevalue>   ::= 0-59
+<hourspec>      ::= <hourvalues>|(*[/<mod>[+<div>]])
+<hourvalues>    ::= <hourvalue>[,<hourvalues>]
+<hourvalue>     ::= 0-23
+<dayspec>       ::= <dayvalues>|(*[/<mod>[+<div>]])
+<dayvalues>     ::= <dayvalue>[,<dayvalues>]
+<dayvalue>      ::= 1-31|last                      # in accordance with existing days in the indicated month
+<monthspec>     ::= <monthvalues>|(*[/<mod>[+<div>]])
+<monthvalues>   ::= <monthvalue>[,<monthvalues>]
+<monthvalue>    ::= 1-12|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec
+<yearspec>      ::= <yearvalues>|(*[/<mod>[+<div>]])
+<yearvalues>    ::= <yearvalue>[,<yearvalues>]
+<yearvalue>     ::= <absolute year within the Common Era>
+<mod>           ::= <positive integer>
+<div>           ::= <positive integer less than corresponding <mod>>
 
-<hostspec> ::= (*|?|<hostnames>)[@<hostgroupname>]
+<hostspec>      ::= (*|?|<hostnames>)[@<hostgroupname>]
 
-<userspec> ::= <username>[.<groupname>]
-<username> ::= \w+
-<groupname> ::= \w+
+<userspec>      ::= <username>[.<groupname>]
+<username>      ::= \w+
+<groupname>     ::= \w+
 
-optionspec ::= [defaults[,<options>]]|[<options>]
-options ::= <optionname>=<optionvalue>,[<options>]
-optionname ::= \w+
-optionvalue ::= \w+
+optionspec      ::= [defaults[,<options>]]|[<options>]
+options         ::= <optionname>=<optionvalue>,[<options>]
+optionname      ::= \w+
+optionvalue     ::= \w+
 
-command ::= <string to be executed as a shell command>
+command         ::= <string to be executed as a shell command>
