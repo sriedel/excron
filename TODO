@@ -1,0 +1,10 @@
+Planned Features
+
+- Distributed Cron Scheduler with failover
+- Crontab can be edited from any node (like crontab -e)
+- Crontab locking across nodes (like vipw)
+- Cronjobs can be scheduled with a second resolution
+- Host Specifications
+- Hostgroups (like YP/NIS)
+- Optional job timeouts
+- Optional job locking (so no two jobs of the same instance can run at the same time)
