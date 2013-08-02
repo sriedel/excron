@@ -49,9 +49,9 @@ Symbolic names are always case insensitive
 <username>      ::= \w+
 <groupname>     ::= \w+
 
-optionspec      ::= [defaults[,<options>]]|[<options>]
-options         ::= <optionname>=<optionvalue>,[<options>]
-optionname      ::= \w+
-optionvalue     ::= \w+
+<optionspec>    ::= [defaults[,<options>]]|[<options>]
+<options>       ::= <optionname>=<optionvalue>,[<options>]
+<optionname>    ::= \w+
+<optionvalue>   ::= \w+
 
-command         ::= <string to be executed as a shell command>
+<command>       ::= <string to be executed as a shell command>
