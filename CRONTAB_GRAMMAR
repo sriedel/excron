@@ -13,7 +13,7 @@ Symbolic names are always case insensitive
 <hostnames>     ::= <hostname>[,<hostnames>]
 <hostname>      ::= <name returned by "hostname -f">
 
-<mailsenderdef> ::= [<hostname>|<IPv4Address>][:<Port>]
+<mailsenderdef> ::= MailVia [<hostname>|<IPv4Address>][:<Port>]
 <IPv4Address>   ::= (1-255).(0-255).(0-255).(0-255)
 <Port>          ::= 0-65535
 
