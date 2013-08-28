@@ -21,7 +21,7 @@ Symbolic names are always case insensitive
                     [<ruledefs>]
 <ruledef>       ::= <timespec> <hostspec> <userspec> <optionspec> <command>
 
-<timespec>      ::= <secondspec> <minutespec> <hourspec> <dayspec> <monthspec> <yearspec>
+<timespec>      ::= <secondspec> <minutespec> <hourspec> <dayspec> <monthspec>
 <secondspec>    ::= <secondvalues>[/<mod>[+<div>]]
 <secondvalues>  ::= <secondvalue>[,<secondvalues>]|*
 <secondvalue>   ::= 0-59
@@ -37,9 +37,7 @@ Symbolic names are always case insensitive
 <monthspec>     ::= <monthvalues>[/<mod>[+<div>]]
 <monthvalues>   ::= <monthvalue>[,<monthvalues>]|*
 <monthvalue>    ::= 1-12|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec
-<yearspec>      ::= <yearvalues>[/<mod>[+<div>]]
-<yearvalues>    ::= <yearvalue>[,<yearvalues>]|*
-<yearvalue>     ::= <absolute year within the Common Era>
+
 <mod>           ::= <positive integer>
 <div>           ::= <positive integer less than corresponding <mod>>
 
