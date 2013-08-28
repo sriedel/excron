@@ -22,24 +22,24 @@ Symbolic names are always case insensitive
 <ruledef>       ::= <timespec> <hostspec> <userspec> <optionspec> <command>
 
 <timespec>      ::= <secondspec> <minutespec> <hourspec> <dayspec> <monthspec>
-<secondspec>    ::= <secondvalues>[/<mod>[+<div>]]
+<secondspec>    ::= <secondvalues>[/<mod>[+<add>]]
 <secondvalues>  ::= <secondvalue>[,<secondvalues>]|*
 <secondvalue>   ::= 0-59
-<minutespec>    ::= <minutevalues>[/<mod>[+<div>]]
+<minutespec>    ::= <minutevalues>[/<mod>[+<add>]]
 <minutevalues>  ::= <minutevalue>[,<minutevalues>]|*
 <minutevalue>   ::= 0-59
-<hourspec>      ::= <hourvalues>[/<mod>[+<div>]]
+<hourspec>      ::= <hourvalues>[/<mod>[+<add>]]
 <hourvalues>    ::= <hourvalue>[,<hourvalues>]|*
 <hourvalue>     ::= 0-23
-<dayspec>       ::= <dayvalues>[/<mod>[+<div>]]
+<dayspec>       ::= <dayvalues>[/<mod>[+<add>]]
 <dayvalues>     ::= <dayvalue>[,<dayvalues>]|*
 <dayvalue>      ::= 1-31|last                      # in accordance with existing days in the indicated month
-<monthspec>     ::= <monthvalues>[/<mod>[+<div>]]
+<monthspec>     ::= <monthvalues>[/<mod>[+<add>]]
 <monthvalues>   ::= <monthvalue>[,<monthvalues>]|*
 <monthvalue>    ::= 1-12|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec
 
 <mod>           ::= <positive integer>
-<div>           ::= <positive integer less than corresponding <mod>>
+<add>           ::= <positive integer>
 
 <hostspec>      ::= (*|?|<hostnames>)[@<hostgroupname>]
 
